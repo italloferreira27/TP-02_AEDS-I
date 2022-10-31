@@ -2,7 +2,8 @@
 
 int main(){
     char cores[MAX];
-    int opcao, espacos;
+    int tam = Tamanho_Matriz();
+    int i, j, opcao, espacos, matriz[tam][tam];
 
     printf("1 = Ler arquivo\n2 = Permutar\n");
     while(opcao != 5){
@@ -10,7 +11,7 @@ int main(){
         scanf("%d", &opcao);
         switch (opcao){
         case 1:
-            Iniciar();
+            Iniciar(tam, matriz);
             break;
 
         case 2:
@@ -22,8 +23,14 @@ int main(){
             Permutacao(cores, espacos);
             break;
         case 3:
-            
-            break;
+            // printf("\n");
+            // for(i = 0; i < 10; i++){
+            //     for(j = 0; j < 10; j++){
+            //         printf("%d  ", matriz[i][j]);
+            //     }
+            //     printf("\n");
+            // }
+            // break;
         default:
             printf("Opcao invalida!");
             break;

@@ -65,83 +65,88 @@ int Permutacao(char* cores, int espacos){
     return 0;
 }
 
-void Iniciar(){
+void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
     int i, j, k = 0, n ,cont = 0;
-    int vetor[50];
-    char linha[50], linha_conta[50], cores[MAX];
+    int vetor[50], espacos;
+    char linha[50], cores[MAX];
     char *Numero; //strtok
-    int tamanho, tamanho_Mat = 0, espacos;
+    int tamanho; //strtok
 
     //..........Manipulação de arquivo..........
-                FILE *file;
-                file = fopen("entrada_I.txt", "r");
+    FILE *file;
+    file = fopen("entrada_I.txt", "r");                
 
-                //Contar a quantidaded de linha do arquivo
-                FILE *file2;
-                file2 = fopen("entrada_I.txt", "r");
+    while(fgets(linha, 50, file) != NULL){
+        Numero = strtok(linha, " ");
 
-                while(fgets(linha_conta, 50, file2) != NULL){
-                    tamanho_Mat++;
-                }
+        while(Numero){
 
-                int Matriz[tamanho_Mat][tamanho_Mat];
+            tamanho = strlen(Numero);
+            char Aux_Numero[tamanho];
 
-                for(i = 0; i < tamanho_Mat; i++){
-                    for(j = 0; j < tamanho_Mat; j++){
-                        Matriz[i][j] = 0;
+            if(Numero[tamanho - 1] == '\n'){
+                for(i = 0; i < tamanho; i++){
+                    if(i != (tamanho - 1)){
+                        Aux_Numero[i] = Numero[i]; 
                     }
                 }
-                //printf("%d \n\n", tamanho_Mat);
+                strcpy(Numero, Aux_Numero);
+            }
+            
+            vetor[cont] = *Numero - '0'; //converter de caractere para inteiro
+            printf("%d ", vetor[cont]);
+            Numero = strtok(NULL, " "); 
+            cont++;
+        }
+        printf("cont = %d \n", cont);
 
-                fclose(file2);
-                //----------------------------------------
-
-
-                while(fgets(linha, 50, file) != NULL){
-                    Numero = strtok(linha, " ");
-
-                    while(Numero){
-
-                        tamanho = strlen(Numero);
-                        char Aux_Numero[tamanho];
-
-                        if(Numero[tamanho - 1] == '\n'){
-                            for(i = 0; i < tamanho; i++){
-                                if(i != (tamanho - 1)){
-                                    Aux_Numero[i] = Numero[i]; 
-                                }
-                            }
-                            strcpy(Numero, Aux_Numero);
-                        }
-                        
-                        vetor[cont] = *Numero - '0';
-                        printf("%d ", vetor[cont]);
-                        Numero = strtok(NULL, " "); 
-                        cont++;
-                    }
-                    printf("cont = %d \n", cont);
-
-                    //Colocando as adjacencias na matriz 
-                    for(i = 0; i < tamanho_Mat; i++){
-                        for(j = 0; j < tamanho_Mat; j++){
-                            if(i == j) Matriz[i][j] = -1;
-                            if(cont != 0){
-                                Matriz[vetor[0]][vetor[cont]] = 1;
-                                Matriz[vetor[cont]][vetor[0]] = 1;
-                                cont--;
-                            }
-                        }
-                    }
+        //Colocando as adjacencias na matriz 
+        for(i = 0; i < tamanho_Mat; i++){
+            for(j = 0; j < tamanho_Mat; j++){
+                if(i == j) Matriz[i][j] = -1;
+                if(cont != 0){
+                    Matriz[vetor[0]][vetor[cont]] = 1;
+                    Matriz[vetor[cont]][vetor[0]] = 1;
+                    cont--;
                 }
-                fclose(file);
+            }
+        }
+    }
+    fclose(file);
 
-                    //...........Imprimindo Matriz..........
-                    printf("\n");
-                    for(i = 0; i < tamanho_Mat; i++){
-                        for(j = 0; j < tamanho_Mat; j++){
-                            printf("%d  ", Matriz[i][j]);
-                        }
-                        printf("\n");
-                    }
-                    //......................................
+        //...........Imprimindo Matriz..........
+        printf("\n");
+        for(i = 0; i < tamanho_Mat; i++){
+            for(j = 0; j < tamanho_Mat; j++){
+                printf("%d  ", Matriz[i][j]);
+            }
+            printf("\n");
+        }
+        //......................................
+
+        //return Matriz;
 }
+
+int Tamanho_Matriz(){
+    int tamanho_Mat, i, j;
+    char linha_conta[50];
+
+    FILE *file2;
+    file2 = fopen("entrada_I.txt", "r");
+
+    while(fgets(linha_conta, 50, file2) != NULL){
+        tamanho_Mat++;
+    }
+
+    int Matriz[tamanho_Mat][tamanho_Mat];
+
+    for(i = 0; i < tamanho_Mat; i++){
+        for(j = 0; j < tamanho_Mat; j++){
+            Matriz[i][j] = 0;
+        }
+    }
+    //printf("%d \n\n", tamanho_Mat);
+
+    fclose(file2);
+    return tamanho_Mat;
+    }
