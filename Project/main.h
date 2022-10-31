@@ -4,7 +4,7 @@
 #define MAX 250
 
 
-int Permutacao(char* cores, int espacos){
+int Permutacao(char* cores, int espacos /*int matriz[]*/){
     int i, j, k, n, *num;
     char str[MAX];
 
@@ -47,7 +47,7 @@ int Permutacao(char* cores, int espacos){
             }
             /* Mostra o resultado. */
             str[espacos] = 0 ;
-            printf("%s\n", str) ;
+            //printf("%s\n", str) ;
 
             /* incrementa o algarismo menos significativo. */
             num[0]++ ;
@@ -71,6 +71,12 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
     char linha[50], cores[MAX];
     char *Numero; //strtok
     int tamanho; //strtok
+
+    for(i = 0; i < tamanho_Mat; i++){
+        for(j = 0; j < tamanho_Mat; j++){
+            Matriz[i][j] = 0;
+        }
+    }
 
     //..........Manipulação de arquivo..........
     FILE *file;
@@ -97,7 +103,7 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
             printf("%d ", vetor[cont]);
             Numero = strtok(NULL, " "); 
             cont++;
-        }
+        }cont--;
         printf("cont = %d \n", cont);
 
         //Colocando as adjacencias na matriz 
@@ -138,15 +144,12 @@ int Tamanho_Matriz(){
         tamanho_Mat++;
     }
 
-    int Matriz[tamanho_Mat][tamanho_Mat];
+    //int Matriz[tamanho_Mat][tamanho_Mat];
 
-    for(i = 0; i < tamanho_Mat; i++){
-        for(j = 0; j < tamanho_Mat; j++){
-            Matriz[i][j] = 0;
-        }
-    }
+    
     //printf("%d \n\n", tamanho_Mat);
 
     fclose(file2);
     return tamanho_Mat;
-    }
+}
+
