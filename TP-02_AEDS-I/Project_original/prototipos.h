@@ -1,0 +1,3 @@
+//prototipos
+int iniciar();
+
