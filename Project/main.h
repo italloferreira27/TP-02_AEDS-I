@@ -5,19 +5,21 @@
 
 int compara(char *str,int tam, int matriz[tam][tam]){
     int i,j,cont=0,cont_false=0;
-
+    //printf("%s\n",str);
     for(i=0;i<tam;i++){
         for(j=0;j<tam;j++){
-            if(matriz[i][j] == 1){
-                if(str[i]==str[j]){
-                    cont++;
-                    break;
+            if(j > i){
+                if(matriz[i][j] == 1){
+                    if(str[i]==str[j]){
+                        cont++;
+                        break;
+                    }
                 }
             }
         }
     }
+    //printf("%d\n",cont);
     if(cont == 0){
-        
         printf("Aranjo valido: %s\n",str);
     }else{
         cont_false++;
@@ -26,7 +28,7 @@ int compara(char *str,int tam, int matriz[tam][tam]){
     return cont_false;
 }
 
-int Permutacao(char* cores, int espacos,int tam, int Matriz[tam][tam]){
+int Permutacao(char *cores, int espacos,int tam, int Matriz[tam][tam]){
     int i, j, k, n, *num,cont=0 ;
     char str[MAX];
 
@@ -63,7 +65,7 @@ int Permutacao(char* cores, int espacos,int tam, int Matriz[tam][tam]){
     while ( num[tam] == 0 ) {
         for ( i = 0; i < n; i++ ) {
             /* processo de mapeamento. */
-            for ( j = 0, k = espacos-1; j < espacos; j++ ) {
+            for ( j = 0, k = tam-1; j < tam; j++ ) {
                 str[k] = cores[num[j]] ;
                 k-- ;
             }
@@ -71,6 +73,7 @@ int Permutacao(char* cores, int espacos,int tam, int Matriz[tam][tam]){
             str[tam] = 0 ;
             //printf("%s\n", str) ;
             cont += compara(str,tam,Matriz);
+            //printf("--------------%s\n",str);
 
             /* incrementa o algarismo menos significativo. */
             num[0]++ ;
@@ -103,7 +106,7 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
 
     //..........Manipulação de arquivo..........
     FILE *file;
-    file = fopen("entrada_I.txt", "r");                
+    file = fopen("ent.txt", "r");                
 
     printf("Entradas:\n");
     while(fgets(linha, 50, file) != NULL){
@@ -163,7 +166,7 @@ int Tamanho_Matriz(){
     char linha_conta[50];
 
     FILE *file2;
-    file2 = fopen("entrada_I.txt", "r");
+    file2 = fopen("ent.txt", "r");
 
     while(fgets(linha_conta, 50, file2) != NULL){
         tamanho_Mat++;
