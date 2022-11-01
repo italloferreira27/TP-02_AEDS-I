@@ -6,7 +6,7 @@ int main(){
     int i, j, opcao, espacos, matriz[tam][tam];
 
     printf("1 = Ler arquivo\n2 = Permutar\n");
-    while(opcao != 5){
+    while(opcao != 2){
         printf("\nOpcao: ");
         scanf("%d", &opcao);
         switch (opcao){
@@ -20,17 +20,9 @@ int main(){
             printf("Digite o numero de espacos: ");
             scanf("%d", &espacos);
 
-            Permutacao(cores, espacos);
+            Permutacao(cores, espacos,tam, matriz);
+            opcao = 2;
             break;
-        case 3:
-            // printf("\n");
-            // for(i = 0; i < 10; i++){
-            //     for(j = 0; j < 10; j++){
-            //         printf("%d  ", matriz[i][j]);
-            //     }
-            //     printf("\n");
-            // }
-            // break;
         default:
             printf("Opcao invalida!");
             break;

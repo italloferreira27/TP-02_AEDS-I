@@ -3,8 +3,26 @@
 #include <string.h>
 #define MAX 250
 
+int compara(char *str,int tam, int matriz[tam][tam]){
+    int i,j,cont=0;
 
-int Permutacao(char* cores, int espacos /*int matriz[]*/){
+    for(i=0;i<tam;i++){
+        for(j=0;j<tam;j++){
+            if(matriz[i][j] == 1){
+                if(str[i]==str[j]){
+                    cont++;
+                }
+            }
+        }
+    }
+    if(cont == 0){
+        printf("ARANJO VALIDO\n");
+    }else{
+        printf("aranjo invalido\n");
+    }
+}
+
+int Permutacao(char* cores, int espacos,int tam, int Matriz[tam][tam]){
     int i, j, k, n, *num;
     char str[MAX];
 
@@ -47,7 +65,8 @@ int Permutacao(char* cores, int espacos /*int matriz[]*/){
             }
             /* Mostra o resultado. */
             str[espacos] = 0 ;
-            //printf("%s\n", str) ;
+            printf("%s\n", str) ;
+            compara(str,tam,Matriz);
 
             /* incrementa o algarismo menos significativo. */
             num[0]++ ;
