@@ -4,7 +4,7 @@
 #define MAX 250
 
 int compara(char *str,int tam, int matriz[tam][tam]){
-    int i,j,cont=0;
+    int i,j,cont=0,cont_false=0;
 
     for(i=0;i<tam;i++){
         for(j=0;j<tam;j++){
@@ -16,14 +16,17 @@ int compara(char *str,int tam, int matriz[tam][tam]){
         }
     }
     if(cont == 0){
-        printf("ARANJO VALIDO\n");
+        
+        printf("Aranjo valido: %s\n",str);
     }else{
-        printf("aranjo invalido\n");
+        cont_false++;
     }
+
+    return cont_false;
 }
 
 int Permutacao(char* cores, int espacos,int tam, int Matriz[tam][tam]){
-    int i, j, k, n, *num;
+    int i, j, k, n, *num,cont=0 ;
     char str[MAX];
 
 
@@ -65,8 +68,8 @@ int Permutacao(char* cores, int espacos,int tam, int Matriz[tam][tam]){
             }
             /* Mostra o resultado. */
             str[espacos] = 0 ;
-            printf("%s\n", str) ;
-            compara(str,tam,Matriz);
+            //printf("%s\n", str) ;
+            cont += compara(str,tam,Matriz);
 
             /* incrementa o algarismo menos significativo. */
             num[0]++ ;
@@ -80,7 +83,7 @@ int Permutacao(char* cores, int espacos,int tam, int Matriz[tam][tam]){
             }
         }
     }
-
+    printf("Numero de aranjos invalidos: %d",cont);
     return 0;
 }
 
@@ -117,13 +120,14 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
                 }
                 strcpy(Numero, Aux_Numero);
             }
-            
-            vetor[cont] = *Numero - '0'; //converter de caractere para inteiro
+
+            vetor[cont] = atoi(Numero); //converter de caractere para inteiro
             printf("%d ", vetor[cont]);
             Numero = strtok(NULL, " "); 
             cont++;
-        }cont--;
+        }
         printf("cont = %d \n", cont);
+        cont--;
 
         //Colocando as adjacencias na matriz 
         for(i = 0; i < tamanho_Mat; i++){
