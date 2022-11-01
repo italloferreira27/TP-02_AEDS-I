@@ -7,13 +7,11 @@ int compara(char *str,int tam, int matriz[tam][tam]){
     int i,j,cont=0,cont_false=0;
     //printf("%s\n",str);
     for(i=0;i<tam;i++){
-        for(j=0;j<tam;j++){
-            if(j > i){
-                if(matriz[i][j] == 1){
-                    if(str[i]==str[j]){
-                        cont++;
-                        break;
-                    }
+        for(j=i+1;j<tam;j++){
+            if(matriz[i][j] == 1){
+                if(str[i]==str[j]){
+                    cont++;
+                    break;
                 }
             }
         }
@@ -149,7 +147,7 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
     fclose(file);
 
         //...........Imprimindo Matriz..........
-        printf("\n");
+        printf("\nMatriz:\n");
         for(i = 0; i < tamanho_Mat; i++){
             for(j = 0; j < tamanho_Mat; j++){
                 printf("%d  ", Matriz[i][j]);

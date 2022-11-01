@@ -1,4 +1,4 @@
-//protótipos funções
+//protótipos das funções
 
 //comparar as permutações com a matriz adjacência
 int compara(char *, int, int);
