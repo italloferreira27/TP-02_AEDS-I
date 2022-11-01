@@ -11,6 +11,7 @@ int compara(char *str,int tam, int matriz[tam][tam]){
             if(matriz[i][j] == 1){
                 if(str[i]==str[j]){
                     cont++;
+                    break;
                 }
             }
         }
@@ -51,7 +52,7 @@ int Permutacao(char* cores, int espacos,int tam, int Matriz[tam][tam]){
      * r+1 posições, sendo que a última é 
      * reservada para indicar quando todos os
      * números de tamanho r foram gerados. */
-    num = (int *) calloc( (espacos + 1), sizeof(int)) ;
+    num = (int *) calloc( (tam + 1), sizeof(int)) ;
     if ( num == NULL ) {
         perror("calloc") ;
         return -1;
@@ -59,7 +60,7 @@ int Permutacao(char* cores, int espacos,int tam, int Matriz[tam][tam]){
 
     /* Termina quando a última posição do vetor
      * for 1. */
-    while ( num[espacos] == 0 ) {
+    while ( num[tam] == 0 ) {
         for ( i = 0; i < n; i++ ) {
             /* processo de mapeamento. */
             for ( j = 0, k = espacos-1; j < espacos; j++ ) {
@@ -67,7 +68,7 @@ int Permutacao(char* cores, int espacos,int tam, int Matriz[tam][tam]){
                 k-- ;
             }
             /* Mostra o resultado. */
-            str[espacos] = 0 ;
+            str[tam] = 0 ;
             //printf("%s\n", str) ;
             cont += compara(str,tam,Matriz);
 
@@ -76,14 +77,14 @@ int Permutacao(char* cores, int espacos,int tam, int Matriz[tam][tam]){
         }
 
         /* Muda de "casa" e lança os vai uns. */ 
-        for ( i = 0; i < espacos; i++ ) {
+        for ( i = 0; i < tam; i++ ) {
             if ( num[i] == n ) {
                 num[i] = 0 ;
                 num[i+1]++ ;
             }
         }
     }
-    printf("Numero de aranjos invalidos: %d",cont);
+    printf("Numero de aranjos invalidos: %d\n",cont);
     return 0;
 }
 
@@ -104,6 +105,7 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
     FILE *file;
     file = fopen("entrada_I.txt", "r");                
 
+    printf("Entradas:\n");
     while(fgets(linha, 50, file) != NULL){
         Numero = strtok(linha, " ");
 
@@ -126,7 +128,7 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
             Numero = strtok(NULL, " "); 
             cont++;
         }
-        printf("cont = %d \n", cont);
+        printf("\n");
         cont--;
 
         //Colocando as adjacencias na matriz 
@@ -150,7 +152,7 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
                 printf("%d  ", Matriz[i][j]);
             }
             printf("\n");
-        }
+        }printf("\n");
         //......................................
 
         //return Matriz;
@@ -167,12 +169,6 @@ int Tamanho_Matriz(){
         tamanho_Mat++;
     }
 
-    //int Matriz[tamanho_Mat][tamanho_Mat];
-
-    
-    //printf("%d \n\n", tamanho_Mat);
-
     fclose(file2);
     return tamanho_Mat;
 }
-
