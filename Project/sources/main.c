@@ -1,13 +1,17 @@
 #include <time.h>
-#include "../headers/Funções.h"
+#include "../headers/funcoes.h"
 
 int main(){
     char cores[MAX];
-    int tam = Tamanho_Matriz();
+    int tam;
     int i, j, opcao, espacos, matriz[tam][tam];
+    //funções de tempo
     clock_t start, end;
     double time;
-    
+
+    //gerar tamanho da matriz adjacente
+    tam = Tamanho_Matriz();
+    //preenche matriz adjacente
     Iniciar(tam, matriz);
     
     printf("Digite as iniciais das suas cores: ");
@@ -15,7 +19,7 @@ int main(){
     start = clock();
     printf("Numero de espacos: %d\n",tam);
 
-    Permutacao(cores, espacos,tam, matriz);
+    Permutacao(cores, espacos, tam, matriz);
     opcao = 2;  
     end = clock();
     time = (double) (end - start) / CLOCKS_PER_SEC;

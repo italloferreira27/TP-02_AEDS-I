@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "../headers/Funções.h"
+#define MAX 250
 
 
 
@@ -106,7 +106,7 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
 
     //..........Manipulação de arquivo..........
     FILE *file;
-    file = fopen("ent.txt", "r");                
+    file = fopen("../Arquivos-teste/ent.txt", "r");                
 
     printf("Entradas:\n");
     while(fgets(linha, 50, file) != NULL){
@@ -166,7 +166,7 @@ int Tamanho_Matriz(){
     char linha_conta[50];
 
     FILE *file2;
-    file2 = fopen("ent.txt", "r");
+    file2 = fopen("../Arquivos-teste/ent.txt", "r");
 
     while(fgets(linha_conta, 50, file2) != NULL){
         tamanho_Mat++;
