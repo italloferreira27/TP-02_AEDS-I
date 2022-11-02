@@ -1,16 +1,15 @@
 #include <time.h>
-#include "../headers/funcoes.h"
+#include "../headers/m.h"
 
 int main(){
     char cores[MAX];
-    int tam;
+    //gerar tamanho da matriz adjacente
+    int tam = Tamanho_Matriz();;
     int i, j, opcao, espacos, matriz[tam][tam];
     //funções de tempo
     clock_t start, end;
     double time;
 
-    //gerar tamanho da matriz adjacente
-    tam = Tamanho_Matriz();
     //preenche matriz adjacente
     Iniciar(tam, matriz);
     
