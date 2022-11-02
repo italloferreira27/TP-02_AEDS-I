@@ -1,4 +1,4 @@
 compile:
-	gcc -o exec ../sources/main.c ../sources/Funções.c
+	gcc -o exec ../sources/main.c
 run:
 	./exec
