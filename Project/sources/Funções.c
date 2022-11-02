@@ -1,7 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#define MAX 250
+#include "../headers/Funções.h"
+
+
 
 int compara(char *str,int tam, int matriz[tam][tam]){
     int i,j,cont=0,cont_false=0;

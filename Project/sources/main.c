@@ -1,5 +1,5 @@
-#include "./main.h"
 #include <time.h>
+#include "../headers/Funções.h"
 
 int main(){
     char cores[MAX];
