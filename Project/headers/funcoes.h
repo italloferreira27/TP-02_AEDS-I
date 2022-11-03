@@ -71,7 +71,7 @@ int Permutacao(char *cores, int tam, int Matriz[tam][tam]){
             }
             /* Mostra o resultado. */
             str[tam] = 0 ;
-            //printf("%s\n", str) ;
+            //printf("%s\n", str) ; //Escrever toda as permutações 
             cont += compara(str,tam,Matriz);
             //printf("--------------%s\n",str);
 
@@ -106,7 +106,7 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
 
     //..........Manipulação de arquivo..........
     FILE *file;
-    file = fopen("../Arquivos-teste/entrada_I.txt", "r");                
+    file = fopen("./Arquivos-teste/entrada_I.txt", "r");                
 
     printf("Entradas:\n");
     while(fgets(linha, 100, file) != NULL){
@@ -166,7 +166,7 @@ int Tamanho_Matriz(){
     char linha_conta[100];
 
     FILE *file2;
-    file2 = fopen("../Arquivos-teste/entrada_I.txt", "r");
+    file2 = fopen("./Arquivos-teste/entrada_I.txt", "r");
 
     while(fgets(linha_conta, 100, file2) != NULL){
         tamanho_Mat++;
