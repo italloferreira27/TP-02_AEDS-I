@@ -4,8 +4,8 @@
 int main(){
     char cores[MAX];
     //gerar tamanho da matriz adjacente
-    int tam = Tamanho_Matriz();;
-    int i, j, opcao, espacos, matriz[tam][tam];
+    int tam = Tamanho_Matriz();
+    int matriz[tam][tam];
     //funções de tempo
     clock_t start, end;
     double time;
@@ -18,8 +18,7 @@ int main(){
     start = clock();
     printf("Numero de espacos: %d\n",tam);
 
-    Permutacao(cores, espacos, tam, matriz);
-    opcao = 2;  
+    Permutacao(cores, tam, matriz); 
     end = clock();
     time = (double) (end - start) / CLOCKS_PER_SEC;
     printf("Tempo de execucao: %f seg\n", time);

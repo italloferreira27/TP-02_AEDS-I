@@ -28,7 +28,7 @@ int compara(char *str,int tam, int matriz[tam][tam]){
     return cont_false;
 }
 
-int Permutacao(char *cores, int espacos,int tam, int Matriz[tam][tam]){
+int Permutacao(char *cores, int tam, int Matriz[tam][tam]){
     int i, j, k, n, *num,cont=0 ;
     char str[MAX];
 
@@ -93,8 +93,8 @@ int Permutacao(char *cores, int espacos,int tam, int Matriz[tam][tam]){
 
 void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
     int i, j, k = 0, n ,cont = 0;
-    int vetor[50], espacos;
-    char linha[50], cores[MAX];
+    int vetor[100], espacos;
+    char linha[100], cores[MAX];
     char *Numero; //strtok
     int tamanho; //strtok
 
@@ -109,7 +109,7 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
     file = fopen("../Arquivos-teste/entrada_I.txt", "r");                
 
     printf("Entradas:\n");
-    while(fgets(linha, 50, file) != NULL){
+    while(fgets(linha, 100, file) != NULL){
         Numero = strtok(linha, " ");
 
         while(Numero){
@@ -163,12 +163,12 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
 
 int Tamanho_Matriz(){
     int tamanho_Mat, i, j;
-    char linha_conta[50];
+    char linha_conta[100];
 
     FILE *file2;
     file2 = fopen("../Arquivos-teste/entrada_I.txt", "r");
 
-    while(fgets(linha_conta, 50, file2) != NULL){
+    while(fgets(linha_conta, 100, file2) != NULL){
         tamanho_Mat++;
     }
 
