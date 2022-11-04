@@ -1,17 +1,24 @@
 #include <time.h>
+#include <string.h>
 #include "./headers/funcoes.h"
 
 int main(){
-    char cores[MAX];
+    char cores[MAX], nome1[100]; // nome1 diretorio do arquivo
+    char nome2[20];
+    strcpy(nome1, "./Arquivos-teste/");
+    Arquivos();
+    printf("Digite o nome do arquivo: ");
+    scanf("%s", nome2); //Lendo nome do arquivo
+    strcat(nome1, nome2);
     //gerar tamanho da matriz adjacente
-    int tam = Tamanho_Matriz();
+    int tam = Tamanho_Matriz(nome1);
     int matriz[tam][tam];
     //funções de tempo
     clock_t start, end;
     double time;
 
     //preenche matriz adjacente
-    Iniciar(tam, matriz);
+    Iniciar(tam, matriz, nome1);
     
     printf("Digite as iniciais das suas cores: ");
     scanf("%s", cores);

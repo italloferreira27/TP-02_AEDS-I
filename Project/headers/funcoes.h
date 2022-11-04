@@ -71,7 +71,7 @@ int Permutacao(char *cores, int tam, int Matriz[tam][tam]){
             }
             /* Mostra o resultado. */
             str[tam] = 0 ;
-            printf("%s\n", str) ; //Escrever toda as permutações 
+            //printf("%s\n", str) ; //Escrever toda as permutações 
             cont += compara(str,tam,Matriz);
             //printf("--------------%s\n",str);
 
@@ -91,7 +91,7 @@ int Permutacao(char *cores, int tam, int Matriz[tam][tam]){
     return 0;
 }
 
-void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
+void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat], char* nome_arq){
     int i, j, k = 0, n ,cont = 0;
     int vetor[100], espacos;
     char linha[100], cores[MAX];
@@ -106,7 +106,7 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
 
     //..........Manipulação de arquivo..........
     FILE *file;
-    file = fopen("./Arquivos-teste/ent.txt", "r");                
+    file = fopen(nome_arq, "r");                
 
     printf("Entradas:\n");
     while(fgets(linha, 100, file) != NULL){
@@ -161,12 +161,12 @@ void Iniciar(int tamanho_Mat, int Matriz[tamanho_Mat][tamanho_Mat]){
         //return Matriz;
 }
 
-int Tamanho_Matriz(){
+int Tamanho_Matriz(char* nome_arq){
     int tamanho_Mat=0, i, j;
     char linha_conta[100];
 
     FILE *file2;
-    file2 = fopen("./Arquivos-teste/ent.txt", "r");
+    file2 = fopen(nome_arq, "r");
 
     while(fgets(linha_conta, 100, file2) != NULL){
         tamanho_Mat++;
@@ -174,4 +174,10 @@ int Tamanho_Matriz(){
 
     fclose(file2);
     return tamanho_Mat;
+}
+
+void Arquivos(){ //Nomes dos arquivos
+    printf("Arquivos:\n\tentrada_5.txt\tentrada_10.txt\tentrada_15.txt\n"
+    "\tentrada_20.txt\tentrada_23.txt\tentrada_25.txt\n"
+    "\tentrada_26.txt\tentrada_30.txt\tentrada_35.txt\n\n");
 }
