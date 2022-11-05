@@ -177,7 +177,7 @@ int Tamanho_Matriz(char* nome_arq){
 }
 
 void Arquivos(){ //Nomes dos arquivos
-    printf("Arquivos:\n\tentrada_5.txt\tentrada_10.txt\tentrada_15.txt\n"
+    printf("Arquivos:\n\tentrada_05.txt\tentrada_10.txt\tentrada_15.txt\n"
     "\tentrada_20.txt\tentrada_23.txt\tentrada_25.txt\n"
     "\tentrada_26.txt\tentrada_30.txt\tentrada_35.txt\n\n");
 }
