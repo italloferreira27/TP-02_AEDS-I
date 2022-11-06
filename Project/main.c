@@ -7,7 +7,7 @@ int main(){
     char nome2[20];
     strcpy(nome1, "./Arquivos-teste/");
     Arquivos();
-    printf("Digite o nome do arquivo: ");
+    printf(Color "Digite o nome do arquivo: " reset);
     scanf("%s", nome2); //Lendo nome do arquivo
     strcat(nome1, nome2);
     //gerar tamanho da matriz adjacente

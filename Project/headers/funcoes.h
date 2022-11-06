@@ -1,9 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#define Color "\e[1;92m"
+#define reset "\e[0m"
 #define MAX 250
-
-
+ 
 
 int compara(char *str,int tam, int matriz[tam][tam]){
     int i,j,cont=0,cont_false=0;
@@ -177,7 +178,7 @@ int Tamanho_Matriz(char* nome_arq){
 }
 
 void Arquivos(){ //Nomes dos arquivos
-    printf("Arquivos:\n\tentrada_5.txt\tentrada_10.txt\tentrada_15.txt\n"
+    printf(Color "Arquivos:\n\tentrada_5.txt\tentrada_10.txt\tentrada_15.txt\n"
     "\tentrada_20.txt\tentrada_23.txt\tentrada_25.txt\n"
-    "\tentrada_26.txt\tentrada_30.txt\tentrada_35.txt\n\n");
+    "\tentrada_26.txt\tentrada_30.txt\tentrada_35.txt\n\n" reset);
 }
